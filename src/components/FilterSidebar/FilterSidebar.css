@@ -1,0 +1,76 @@
+.filter-sidebar {
+    width: 260px;
+    padding: 12px 0;
+    border-right: 1px solid #eee;
+    font-family: inherit;
+    font-size: 18px;
+    background: #fff;
+  }
+  
+  .customizable-section {
+    display: flex;
+    align-items: center;
+    padding: 0 18px 20px 18px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .customizable-checkbox {
+    margin-right: 8px;
+    width: 15px;
+    height: 15px;
+  }
+  
+  .customizable-label {
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    line-height: 100%;
+    font-style: bold;
+  }
+  
+  .filter-item {
+    border-bottom: 1px solid #eee;
+    padding: 18px;
+  }
+  
+  .filter-item-last {
+    padding: 18px;
+  }
+  
+  .filter-item-first {
+    padding-top: 20px;
+  }
+  
+  .filter-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 700;
+    font-size: 18px;
+    font-style: bold;
+    line-height: 100%;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+  
+  .filter-title {
+    font-weight: 700;
+  }
+  
+  .filter-chevron {
+    font-size: 16px;
+    font-weight: 400;
+    user-select: none;
+  }
+  
+  .filter-value {
+    margin-top: 6px;
+    margin-left: 1px;
+    font-size: 18px;
+    color: #222;
+    font-weight: 400;
+    line-height: 100%;
+    text-transform: capitalize;
+  }

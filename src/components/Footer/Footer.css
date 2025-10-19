@@ -1,0 +1,157 @@
+.footer {
+    background: #000;
+    color: #fff;
+    font-family: inherit;
+    padding: 48px 24px 24px 24px;
+    font-size: 14px;
+  }
+  
+  .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .footer-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 48px;
+    margin-bottom: 48px;
+  }
+  
+  .footer-section {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .section-title {
+    font-weight: 700;
+    font-size: 14px;
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+  }
+  
+  .section-description {
+    color: #bdbdbd;
+    margin-bottom: 20px;
+    font-size: 13px;
+  }
+  
+  .newsletter-form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    max-width: 370px;
+  }
+  
+  .email-input {
+    flex: 1;
+    padding: 9px 12px;
+    border: none;
+    border-radius: 2px;
+    font-size: 13px;
+    outline: none;
+    background-color: #fff;
+    color: #222;
+    min-width: 0;
+  }
+  
+  .subscribe-button {
+    padding: 9px 18px;
+    background: #191919;
+    color: #fff;
+    border: none;
+    border-radius: 2px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 13px;
+    letter-spacing: 1px;
+  }
+  
+  .contact-info {
+    color: #bdbdbd;
+    font-size: 13px;
+  }
+  
+  .contact-item {
+    margin-bottom: 4px;
+  }
+  
+  .contact-email {
+    margin-bottom: 20px;
+  }
+  
+  .currency-display {
+    color: #fff;
+    font-weight: 600;
+    font-size: 13px;
+    margin-bottom: 4px;
+  }
+  
+  .currency-note {
+    color: #bdbdbd;
+    font-size: 12px;
+  }
+  
+  .company-name {
+    margin-bottom: 8px;
+    font-weight: 700;
+    font-size: 15px;
+  }
+  
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  
+  .footer-link {
+    color: #bdbdbd;
+    text-decoration: none;
+    font-size: 13px;
+    display: block;
+    margin-bottom: 4px;
+    line-height: 1.4;
+  }
+  
+  .footer-link:hover {
+    color: #fff;
+  }
+  
+  .payment-section {
+    border-top: 1px solid #333;
+    border-bottom: 1px solid #333;
+    padding: 24px 0;
+    margin-bottom: 24px;
+  }
+  
+  .payment-icons {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+  
+  .payment-icon {
+    width: 40px;
+    height: 24px;
+    background-color: #333;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 600;
+  }
+  
+  .copyright {
+    text-align: center;
+    font-size: 12px;
+    color: #666;
+  }
+
+
+  @media screen  and (max-width:768px){
+    .footer-content{
+      grid-template-columns: auto;
+    }
+  }
