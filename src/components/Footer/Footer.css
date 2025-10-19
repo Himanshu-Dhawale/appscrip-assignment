@@ -1,4 +1,4 @@
-.footer {
+/* .footer {
     background: #000;
     color: #fff;
     font-family: inherit;
@@ -154,4 +154,397 @@
     .footer-content{
       grid-template-columns: auto;
     }
+  } */
+
+
+  .footer {
+    background: #000;
+    color: #fff;
+    font-family: inherit;
+    padding: 48px 24px 24px 24px;
+    font-size: 14px;
   }
+  
+  .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .footer-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 48px;
+    margin-bottom: 48px;
+  }
+  
+
+  /* Accordion Styles */
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    padding: 8px 0;
+  }
+  
+  .accordion-toggle {
+    font-size: 18px;
+    font-weight: 300;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .section-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+  }
+  
+  .section-content.active {
+    max-height: 1000px;
+    transition: max-height 0.5s ease-in;
+  }
+  
+  .section-title {
+    font-weight: 700;
+    font-style: bold;
+    font-size: 20px;
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  
+  .section-description {
+    color: #FFFFFF;
+    margin-bottom: 20px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 100%;
+  }
+  
+  .newsletter-form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    /* max-width: 370px; */
+  }
+  
+  
+
+  .email-input {
+    /* flex: 1; */
+    padding: 9px 12px;
+    border: none;
+    border-radius: 2px;
+    font-size: 13px;
+    outline: none;
+    background-color: #fff;
+    color: #222;
+    min-width: 0;
+    width: 384px;
+    height: 47px;
+  }
+  
+  .subscribe-button {
+    padding: 9px 18px;
+    background: #191919;
+    color: #fff;
+    border: none;
+    border-radius: 2px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 13px;
+    letter-spacing: 1px;
+    width: 184px;
+    height: 48px;
+  }
+  
+  .contact-info {
+    color: #bdbdbd;
+    font-size: 13px;
+  }
+  
+  .contact-item {
+    color: #FFFFFF;
+    margin-bottom: 4px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 100%;
+  }
+  
+  .contact-email {
+    margin-bottom: 20px;
+  }
+  
+  .currency-display {
+    color: #fff;
+    font-weight: 600;
+    font-size: 13px;
+    margin-bottom: 4px;
+  }
+  
+  .currency-note {
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 100%;
+  }
+  
+  .two-section{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .underline{
+    width: 1248px;
+    height: 0px;
+    margin-top: 26px;
+    border: 1px solid #FFFFFF;
+  }
+
+  .company-name {
+    margin-bottom: 8px;
+    font-weight: 700;
+    color: #FFFFFF;
+    font-size: 24.71px;
+    line-height: 100%;
+  }
+  
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  
+  
+  .footer-link {
+    text-decoration: none;
+    display: block;
+    margin-bottom: 4px;
+    line-height: 1.4;
+    color: #FFFFFF;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 100%;
+  }
+  
+  .footer-link:hover {
+    color: #fff;
+  }
+  
+  .payment-section {
+    border-top: 1px solid #333;
+    border-bottom: 1px solid #333;
+    padding: 24px 0;
+    margin-bottom: 24px;
+  }
+  
+  .payment-icons {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+  
+  .payment-icon {
+    width: 40px;
+    height: 24px;
+    background-color: #333;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 600;
+  }
+  
+  .copyright {
+    text-align: center;
+    font-size: 12px;
+    color: #666;
+  }
+  
+  .social-links {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  
+  /* Desktop Styles - No Accordion */
+  @media screen and (min-width: 769px) {
+    .section-header {
+      cursor: default;
+      pointer-events: none;
+    }
+    
+    .accordion-toggle {
+      display: none;
+    }
+    
+    .section-content {
+      max-height: none !important;
+      overflow: visible;
+    }
+    
+    .footer-section {
+      border-bottom: none !important;
+      padding-bottom: 0 !important;
+    }
+  }
+  
+  /* Mobile Responsive Styles with Accordion */
+  @media screen and (max-width: 768px) {
+    .footer {
+      padding: 32px 16px 16px 16px;
+    }
+  
+    .footer-content {
+      grid-template-columns: 1fr;
+      gap: 0;
+      margin-bottom: 32px;
+    }
+  
+    .footer-section {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: 1px solid #333;
+    }
+  
+    .footer-section:last-of-type {
+      border-bottom: none;
+    }
+  
+    .section-header {
+      padding: 16px 0;
+      margin-bottom: 0;
+    }
+  
+    .section-content {
+      padding: 0 0 16px 0;
+    }
+  
+    .section-content.active {
+      padding-bottom: 16px;
+    }
+  
+    .newsletter-form {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 12px;
+      max-width: 100%;
+    }
+  
+    .subscribe-button {
+      width: 100%;
+      padding: 12px;
+    }
+  
+    .email-input {
+      padding: 12px;
+    }
+  
+    .footer-links {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+  
+    .footer-link {
+      margin-bottom: 0;
+      padding: 4px 0;
+    }
+  
+    .payment-icons {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      justify-items: start;
+    }
+  
+    .payment-icon {
+      width: 60px;
+      height: 32px;
+      font-size: 9px;
+    }
+  
+    .contact-info {
+      margin-bottom: 16px;
+    }
+  
+    .contact-email {
+      margin-bottom: 16px;
+    }
+  
+    .section-title {
+      font-size: 13px;
+      margin-bottom: 12px;
+    }
+  
+    .section-description {
+      font-size: 12px;
+      line-height: 1.5;
+    }
+  
+    .company-name {
+      font-size: 14px;
+      margin-bottom: 16px;
+    }
+  
+    .social-links {
+      justify-content: flex-start;
+      margin-bottom: 20px;
+    }
+  
+    .payment-section {
+      padding: 20px 0;
+      margin-bottom: 20px;
+    }
+  
+    .copyright {
+      font-size: 11px;
+      text-align: left;
+      padding-top: 16px;
+      border-top: 1px solid #333;
+    }
+  }
+  
+  /* Small Mobile Devices */
+  @media screen and (max-width: 480px) {
+    .footer {
+      padding: 24px 12px 12px 12px;
+    }
+  
+    .footer-content {
+      margin-bottom: 24px;
+    }
+  
+    .footer-links {
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+  
+    /* .payment-icons {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    } */
+  
+    .payment-icon {
+      width:auto;
+      height: auto;
+      max-width: 376px;
+  max-height: 35px;
+    }
+  
+    .section-title {
+      font-size: 12px;
+    }
+  
+    .section-description,
+    .contact-info,
+    .footer-link {
+      font-size: 12px;
+    }
+  } 
