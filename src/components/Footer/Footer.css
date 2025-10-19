@@ -335,6 +335,15 @@
     color: #fff;
   }
   
+  .three-section{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .first-section{
+     display: flex;
+     justify-content: space-between;
+  }  
   .payment-section {
     border-top: 1px solid #333;
     border-bottom: 1px solid #333;
@@ -548,3 +557,80 @@
       font-size: 12px;
     }
   } 
+
+  /* Add these styles to your existing CSS */
+
+.three-column-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 48px;
+}
+
+.footer-column {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Ensure proper spacing for titles and links */
+.footer-column .section-header {
+  margin-bottom: 16px;
+}
+
+.footer-column .company-name {
+  margin-bottom: 0;
+}
+
+.footer-column .footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Payment icons styling */
+.payment-icons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.payment-icon {
+  width: 60px;
+  height: 40px;
+  object-fit: contain;
+}
+
+/* Social links */
+.social-links {
+  margin-bottom: 24px;
+}
+
+/* Mobile responsive styles */
+@media screen and (max-width: 768px) {
+  .three-column-section {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    margin-bottom: 32px;
+  }
+  
+  .footer-column .section-header {
+    margin-bottom: 12px;
+  }
+  
+  .payment-icons {
+    gap: 8px;
+  }
+  
+  .payment-icon {
+    width: 50px;
+    height: 30px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .three-column-section {
+    gap: 24px;
+    margin-bottom: 24px;
+  }
+}
