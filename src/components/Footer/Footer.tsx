@@ -161,8 +161,6 @@ const Footer = () => {
             ))}
           </div>
         </div>
-
-        {/* Copyright */}
         <div className="copyright">
           Copyright © 2023 mettamuse. All rights reserved.
         </div>
