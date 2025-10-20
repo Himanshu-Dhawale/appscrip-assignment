@@ -45,7 +45,7 @@
 
 "use client"
 
-import { ChevronDown } from 'lucide-react'
+import { ChevronDown, ChevronLeft } from 'lucide-react'
 import React, { useState } from 'react'
 import './FeaturedBadge.css'
 
@@ -85,7 +85,7 @@ export const FeaturedBadge: React.FC<FeaturedBadgeProps> = ({
           {totalItems} ITEMS
         </span>
         <span className={`hide-filter ${filterActive ? 'filter-active' : 'filter-inactive'}`}>
-          HIDE FILTER
+        <ChevronLeft />  HIDE FILTER
         </span>
 
         <span className="mob-filter">

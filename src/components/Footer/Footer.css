@@ -188,13 +188,12 @@
   }
   
   .accordion-toggle {
-    font-size: 18px;
-    font-weight: 300;
-    width: 20px;
-    height: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    transition: transform 0.3s ease;
+    color: #FFFFFF;
+  }
+
+  .accordion-toggle.open {
+    transform: rotate(180deg);
   }
   
   .section-content {
@@ -293,16 +292,25 @@
     line-height: 100%;
   }
   
-  .two-section{
-    display: flex;
-    justify-content: space-between;
+  .section-underline{
+    width: 100%;
+    height: 0px;
+    margin: 16px 0;
+    border: 1px solid #FFFFFF;
   }
 
-  .underline{
-    width: 1248px;
-    height: 0px;
-    margin-top: 26px;
-    border: 1px solid #FFFFFF;
+  .accordion-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .accordion-item {
+    border-bottom: 1px solid #FFFFFF;
+  }
+
+  .accordion-item:last-child {
+    border-bottom: none;
   }
 
   .company-name {
@@ -402,6 +410,16 @@
       border-bottom: none !important;
       padding-bottom: 0 !important;
     }
+
+    .accordion-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 48px;
+    }
+
+    .accordion-item {
+      border-bottom: none !important;
+    }
   }
   
   /* Mobile Responsive Styles with Accordion */
@@ -409,34 +427,36 @@
     .footer {
       padding: 32px 16px 16px 16px;
     }
-  
-    .footer-content {
-      grid-template-columns: 1fr;
-      gap: 0;
-      margin-bottom: 32px;
-    }
-  
+
     .footer-section {
       margin-bottom: 0;
       padding-bottom: 0;
-      border-bottom: 1px solid #333;
     }
-  
-    .footer-section:last-of-type {
-      border-bottom: none;
-    }
-  
+
     .section-header {
       padding: 16px 0;
       margin-bottom: 0;
     }
-  
+
     .section-content {
       padding: 0 0 16px 0;
     }
-  
+
     .section-content.active {
       padding-bottom: 16px;
+    }
+
+    .accordion-section {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .accordion-item {
+      border-bottom: 1px solid #FFFFFF;
+    }
+
+    .accordion-item:last-child {
+      border-bottom: none;
     }
   
     .newsletter-form {

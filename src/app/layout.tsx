@@ -54,14 +54,14 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "metta muse — Handcrafted & Curated Products",
+  title: "mettā muse — Handcrafted & Curated Products",
   description:
-    "Discover artisan-made products at metta muse. Handcrafted bags, accessories and curated collections. Shop unique pieces from global artisans.",
+    "Discover artisan-made products at mettā muse. Handcrafted bags, accessories and curated collections. Shop unique pieces from global artisans.",
   openGraph: {
-    title: "metta muse — Handcrafted & Curated Products",
+    title: "mettā muse — Handcrafted & Curated Products",
     description:
-      "Discover artisan-made products at metta muse. Handcrafted bags, accessories and curated collections.",
-    siteName: "metta muse",
+      "Discover artisan-made products at mettā muse. Handcrafted bags, accessories and curated collections.",
+    siteName: "mettā muse",
   },
 };
 
@@ -82,7 +82,6 @@ export default function RootLayout({
       <head>
         <script
           type="application/ld+json"
-          // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
         />
       </head>

@@ -1,7 +1,8 @@
-  "use client"
-import React, { useState } from "react";
+"use client"
+import React, { useEffect, useState } from "react";
 import './Footer.css';
 import Image from "next/image";
+import { ChevronDown } from "lucide-react";
 
 const paymentIcons = [
   { src: "/ApplePay.png", alt: "Apple Pay" },
@@ -13,114 +14,151 @@ const paymentIcons = [
 ];
 
 const Footer = () => {
-  
+  const [isMobile, setIsMobile] = useState(false);
+  const [openSections, setOpenSections] = useState<{ [key: string]: boolean }>({
+    company: true,
+    quickLinks: true,
+    followUs: true,
+  });
+
+  useEffect(() => {
+    const updateIsMobile = () => setIsMobile(typeof window !== 'undefined' && window.innerWidth <= 768);
+    updateIsMobile();
+    window.addEventListener('resize', updateIsMobile);
+    return () => window.removeEventListener('resize', updateIsMobile);
+  }, []);
+
+  useEffect(() => {
+    if (isMobile) {
+      setOpenSections({ company: false, quickLinks: false, followUs: false });
+    } else {
+      setOpenSections({ company: true, quickLinks: true, followUs: true });
+    }
+  }, [isMobile]);
+
+  const toggleSection = (key: 'company' | 'quickLinks' | 'followUs') => {
+    if (!isMobile) return; 
+    setOpenSections(prev => ({ ...prev, [key]: !prev[key] }));
+  };
 
   return (
     <footer className="footer">
       <div className="footer-container">
-        {/* Top Section: Newsletter & Contact */}
-        <div className="two-section">
-          {/* Newsletter Section */}
-          <div className="footer-section">
-            <div className="section-header">
-              <div className="section-title">BE THE FIRST TO KNOW</div>
+        <div className="footer-section">
+          <div className="section-header">
+            <div className="section-title">BE THE FIRST TO KNOW</div>
+          </div>
+          <div className="section-content active">
+            <div className="section-description">
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry. this is simply dummy text.
             </div>
-            <div className="section-content active">
-              <div className="section-description">
-                Sign up for updates from mettā muse.
+            <form className="newsletter-form" onSubmit={(e) => e.preventDefault()}>
+              <input
+                type="email"
+                placeholder="Enter your e-mail..."
+                className="email-input"
+              />
+              <button type="submit" className="subscribe-button">
+                SUBSCRIBE
+              </button>
+            </form>
+          </div>
+        </div>
+        <div className="section-underline"></div>
+
+        <div className="footer-section">
+          <div className="section-header">
+            <div className="section-title">CALL US</div>
+          </div>
+          <div className="section-content active">
+            <div className="contact-info">
+              <div className="contact-item">+44 221 133 5360</div>
+              <div className="contact-item contact-email">customercare@mettamuse.com</div>
+            </div>
+          </div>
+        </div>
+        <div className="section-underline"></div>
+
+        {/* Currency Section */}
+        <div className="footer-section">
+          <div className="section-header">
+            <div className="section-title">CURRENCY</div>
+          </div>
+          <div className="section-content active">
+            <div className="currency-display">USD</div>
+          </div>
+        </div>
+        <div className="section-underline"></div>
+
+        {/* Accordion Section */}
+        <div className="accordion-section">
+          {/* mettā muse */}
+          <div className="accordion-item">
+            <div className="section-header" onClick={() => toggleSection('company')}>
+              <div className="company-name">mettā muse</div>
+              <ChevronDown className={`accordion-toggle ${openSections.company ? 'open' : ''}`} size={20} />
+            </div>
+            <div className={`section-content ${openSections.company ? 'active' : ''}`}>
+              <div className="footer-links">
+                <a href="#" className="footer-link">About Us</a>
+                <a href="#" className="footer-link">Stories</a>
+                <a href="#" className="footer-link">Artisans</a>
+                <a href="#" className="footer-link">Boutiques</a>
+                <a href="#" className="footer-link">Contact Us</a>
+                <a href="#" className="footer-link">EU Complianceal Docs</a>
               </div>
-              <form className="newsletter-form" onSubmit={(e) => e.preventDefault()}>
-                <input
-                  type="email"
-                  placeholder="Enter your e-mail..."
-                  className="email-input"
-                />
-                <button type="submit" className="subscribe-button">
-                  SUBSCRIBE
-                </button>
-              </form>
             </div>
           </div>
 
-          {/* Contact & Currency Section */}
-          <div className="footer-section">
-            <div className="section-header">
-              <div className="section-title">CONTACT US</div>
+          {/* QUICK LINKS */}
+          <div className="accordion-item">
+            <div className="section-header" onClick={() => toggleSection('quickLinks')}>
+              <div className="section-title">QUICK LINKS</div>
+              <ChevronDown className={`accordion-toggle ${openSections.quickLinks ? 'open' : ''}`} size={20} />
             </div>
-            <div className="section-content active">
-              <div className="contact-info">
-                <div className="contact-item">+44 221 133 5360</div>
-                <div className="contact-item contact-email">customercare@mettamuse.com</div>
+            <div className={`section-content ${openSections.quickLinks ? 'active' : ''}`}>
+              <div className="footer-links">
+                <a href="#" className="footer-link">Orders & Shipping</a>
+                <a href="#" className="footer-link">Join/Login as a Seller</a>
+                <a href="#" className="footer-link">Payment & Pricing</a>
+                <a href="#" className="footer-link">Return & Refunds</a>
+                <a href="#" className="footer-link">FAQs</a>
+                <a href="#" className="footer-link">Privacy Policy</a>
+                <a href="#" className="footer-link">Terms & Conditions</a>
               </div>
-              
-              <div className="section-title">CURRENCY</div>
-              <div className="currency-display">USD</div>
-              <div className="currency-note">
-                Transactions will be completed in Euros and currency reference available in hover.
+            </div>
+          </div>
+
+          {/* FOLLOW US */}
+          <div className="accordion-item">
+            <div className="section-header" onClick={() => toggleSection('followUs')}>
+              <div className="section-title">FOLLOW US</div>
+              <ChevronDown className={`accordion-toggle ${openSections.followUs ? 'open' : ''}`} size={20} />
+            </div>
+            <div className={`section-content ${openSections.followUs ? 'active' : ''}`}>
+              <div className="social-links">
+                {/* Social icons could go here */}
               </div>
             </div>
           </div>
         </div>
 
-        <div className="underline"></div>
-
-        {/* Bottom Section: Three Columns */}
-        <div className="three-column-section">
-          {/* Left Column - mettā muse */}
-          <div className="footer-column">
-            <div className="section-header">
-              <div className="company-name">mettā muse</div>
-            </div>
-            <div className="footer-links">
-              <a href="#" className="footer-link">About Us</a>
-              <a href="#" className="footer-link">Stories</a>
-              <a href="#" className="footer-link">Artisans</a>
-              <a href="#" className="footer-link">Boutiques</a>
-              <a href="#" className="footer-link">Contact Us</a>
-              <a href="#" className="footer-link">EU Complianceal Docs</a>
-            </div>
+        {/* Payment Section */}
+        <div className="payment-section">
+          <div className="section-header">
+            <div className="section-title">mettā muse ACCEPTS</div>
           </div>
-
-          {/* Middle Column - QUICK LINKS */}
-          <div className="footer-column">
-            <div className="section-header">
-              <div className="section-title">QUICK LINKS</div>
-            </div>
-            <div className="footer-links">
-              <a href="#" className="footer-link">Orders & Shipping</a>
-              <a href="#" className="footer-link">Join/Login as a Seller</a>
-              <a href="#" className="footer-link">Payment & Pricing</a>
-              <a href="#" className="footer-link">Return & Refunds</a>
-              <a href="#" className="footer-link">FAQs</a>
-              <a href="#" className="footer-link">Privacy Policy</a>
-              <a href="#" className="footer-link">Terms & Conditions</a>
-            </div>
-          </div>
-
-          {/* Right Column - FOLLOW US & Payment */}
-          <div className="footer-column">
-            <div className="section-header">
-              <div className="section-title">FOLLOW US</div>
-            </div>
-            <div className="social-links">
-              {/* Add social media icons here */}
-            </div>
-            
-            <div className="section-header">
-              <div className="section-title">mettā muse ACCEPTS</div>
-            </div>
-            <div className="payment-icons">
-              {paymentIcons.map((icon, index) => (
-                <Image 
-                  src={icon.src} 
-                  key={index} 
-                  alt={icon.alt} 
-                  className="payment-icon" 
-                  width={60} 
-                  height={40}
-                />
-              ))}
-            </div>
+          <div className="payment-icons">
+            {paymentIcons.map((icon, index) => (
+              <Image 
+                src={icon.src} 
+                key={index} 
+                alt={icon.alt} 
+                className="payment-icon" 
+                width={60} 
+                height={40}
+              />
+            ))}
           </div>
         </div>
 
